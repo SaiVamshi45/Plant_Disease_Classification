@@ -1,155 +1,157 @@
-# Plant_Disease_Classification
+Thanks! Based on your professor’s instructions, I’ve updated the `README.md` to include **GitHub repository reference, source code, installation guide, dataset note, and usage documentation**.
 
-![Python](https://img.shields.io/badge/Python-3.7%2B-blue)
-![TensorFlow](https://img.shields.io/badge/TensorFlow-2.x-orange)
-![License](https://img.shields.io/badge/License-MIT-green)
+Here's the complete and final version of your `README.md`:
 
-A deep learning model for classifying 38 different plant diseases from leaf images using MobileNetV2 architecture with transfer learning.
+---
 
-## Table of Contents
-- [Features](#features)
-- [Installation](#installation)
-- [Dataset](#dataset)
-- [Usage](#usage)
-- [Model Architecture](#model-architecture)
-- [Performance](#performance)
-- [Examples](#examples)
-- [Contributing](#contributing)
-- [License](#license)
+### ✅ Final `README.md`
 
-## Features
+```markdown
+# 🌿 Plant Disease Classification using CNN (MobileNetV2)
 
-- Classifies 38 different plant diseases
-- Utilizes transfer learning with MobileNetV2
-- Implements data augmentation for robust training
-- Achieves high accuracy on test data
-- Ready-to-use Jupyter notebook with complete workflow
+This project uses **Convolutional Neural Networks (CNN)** with transfer learning to classify plant diseases from leaf images. It utilizes the **MobileNetV2** architecture for efficient and accurate predictions across 38 different classes of plant diseases.
 
-## Installation
+---
 
-1. Clone this repository:
-```bash
-git clone https://github.com/your-username/plant-disease-classification.git
-cd plant-disease-classification
+## 📂 GitHub Repository
+
+The full source code for this project is available on GitHub at:  
+👉 **[https://github.com/SaiVamshi45/Plant_Disease_Classification](https://github.com/SaiVamshi45/Plant_Disease_Classification)**
+
+This repository includes:
+- ✅ Source code files (`.ipynb`, `.py`)
+- ✅ Installation instructions
+- ✅ Example dataset structure (see below)
+- ✅ Documentation and usage guidelines
+
+
+---
+
+## 🧠 Model Architecture
+
+- Base Model: `MobileNetV2` (pretrained on ImageNet)
+- Input Shape: `(256, 256, 3)`
+- Layers:
+  - Global Average Pooling
+  - Dense Layer with ReLU
+  - Dropout
+  - Dense Layer with Softmax (38 classes)
+
+---
+
+## 📊 Dataset Overview
+
+- **Training images**: 34,756  
+- **Validation images**: 8,673  
+- **Total classes**: 38  
+
+Dataset should follow this folder structure:
+
 ```
 
-2. Install dependencies:
+dataset/
+├── train/
+│   ├── ClassA/
+│   ├── ClassB/
+│   └── ...
+├── validation/
+│   ├── ClassA/
+│   ├── ClassB/
+│   └── ...
+└── test/
+├── ClassA/
+├── ClassB/
+└── ...
+
+````
+
+---
+
+## 📈 Training Results
+
+| Epoch | Accuracy | Loss   | Validation Accuracy | Validation Loss | Training Time |
+|-------|----------|--------|----------------------|------------------|----------------|
+| 1     | 75.82%   | 0.9333 | 92.57%               | 0.2434           | ~7507s         |
+| 2     | 97.19%   | 0.0927 | 97.14%               | 0.0941           | ~3339s         |
+| 3     | 98.20%   | 0.0570 | 97.19%               | 0.0917           | ~2532s         |
+| 4     | 98.49%   | 0.0448 | 98.44%               | 0.0481           | ~2451s         |
+| 5     | 98.86%   | 0.0351 | 97.04%               | 0.0980           | ~2954s         |
+
+---
+
+## ⚙️ Installation Instructions
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/yourusername/your-repository.git
+cd your-repository
+````
+
+2. Install the required packages:
+
 ```bash
 pip install -r requirements.txt
 ```
 
-3. Download the dataset (see Dataset section below)
+Or manually install:
 
-## Dataset
-
-The model uses the [Plant Village Dataset](https://plantvillage.psu.edu/) with the following structure:
-```
-plant_leave_diseases_train/
-    class1/
-        image1.jpg
-        image2.jpg
-        ...
-    class2/
-        ...
-plant_leave_diseases_test/
-    class1/
-        ...
-    class2/
-        ...
+```bash
+pip install tensorflow keras numpy matplotlib opencv-python
 ```
 
-To use the dataset:
-1. Place the zip files (`plant_leave_diseases_train.zip` and `plant_leave_diseases_test.zip`) in the project root
-2. The notebook will automatically extract and process them
+---
 
-## Usage
+## 🚀 How to Use
 
-### Training the Model
-1. Open `Lab08_Plant_Disease_Classification.ipynb` in Jupyter Notebook
-2. Run all cells sequentially
-3. The trained model will be saved as `plant_disease_model.h5`
+1. Prepare your dataset as per the structure shown above.
+2. Open the notebook:
 
-### Making Predictions
-```python
-from tensorflow.keras.models import load_model
-from tensorflow.keras.preprocessing import image
-import numpy as np
-
-# Load trained model
-model = load_model('plant_disease_model.h5')
-
-# Preprocess image
-img_path = 'test_leaf.jpg'
-img = image.load_img(img_path, target_size=(256, 256))
-img_array = image.img_to_array(img)
-img_array = np.expand_dims(img_array, axis=0)/255.0
-
-# Make prediction
-prediction = model.predict(img_array)
-class_idx = np.argmax(prediction, axis=1)[0]
-
-# Get class name (replace with your actual class names)
-class_names = ['healthy', 'disease1', 'disease2', ...] 
-print(f"Predicted: {class_names[class_idx]} ({prediction[0][class_idx]*100:.2f}%)")
+```bash
+jupyter notebook Lab08_Plant_Disease_Classification.ipynb
 ```
 
-## Model Architecture
+3. Run each cell to:
 
-The model architecture consists of:
-1. **MobileNetV2** base model (pretrained on ImageNet)
-2. **Global Average Pooling** layer
-3. **Dropout** layer (0.2 rate) for regularization
-4. **Dense** layer (38 units) with softmax activation
+   * Load and preprocess the dataset
+   * Build and compile the model
+   * Train and evaluate it
+   * (Optional) Save and test your trained model
+
+---
+
+## 🔬 Future Improvements
+
+* Use data augmentation and early stopping
+* Fine-tune MobileNetV2 layers after initial training
+* Evaluate on real-world image samples
+* Add Grad-CAM for model explainability
+
+---
+
+## 📄 License
+
+This project is for educational use. Modify and adapt freely with proper citation if reused.
+
+---
+
+## 📬 Contact
+
+For any queries or collaboration, please contact:
+📧 **[your\_email@example.com](mailto:your_email@example.com)**
+
+---
+
+> 🧪 Built with deep learning to support smarter agriculture and plant health monitoring.
 
 ```
-Total params: 2,257,222
-Trainable params: 1,223,302
-Non-trainable params: 1,033,920
+
+---
+
+Let me know if you'd like:
+- A `requirements.txt` file generated
+- Help uploading this to GitHub
+- Markdown converted to a downloadable `.md` file
+
+Just say the word!
 ```
-
-## Performance
-
-| Metric       | Training | Validation | Test |
-|--------------|----------|------------|------|
-| Accuracy     | 98.2%    | 95.7%      | 94.3%|
-| Loss         | 0.052    | 0.148      | 0.162|
-
-## Examples
-
-**Healthy Leaf Prediction:**
-```
-Predicted: Healthy (99.23%)
-```
-
-**Diseased Leaf Prediction:**
-```
-Predicted: Tomato Early Blight (97.56%)
-```
-
-## Contributing
-
-Contributions are welcome! Please follow these steps:
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-## License
-
-Distributed under the MIT License. See `LICENSE` for more information.
-```
-
-### Additional Recommendations:
-
-1. **Add visual examples**: Include sample images of healthy and diseased leaves in an `examples/` folder and reference them in the README.
-
-2. **Create a demo notebook**: Add a simplified version that demonstrates just the prediction part for end-users.
-
-3. **Add a deployment section**: Include instructions for deploying the model as a web app using Flask or FastAPI.
-
-4. **Add citation**: If you're using a specific dataset version, add proper citation information.
-
-5. **Add contact information**: Include your email or other contact methods for questions.
-
-Would you like me to modify any specific section or add additional information to this README?
