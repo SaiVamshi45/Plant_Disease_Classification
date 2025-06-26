@@ -1,19 +1,13 @@
-Thanks! Based on your professor’s instructions, I’ve updated the `README.md` to include **GitHub repository reference, source code, installation guide, dataset note, and usage documentation**.
 
-Here's the complete and final version of your `README.md`:
 
----
 
-### ✅ Final `README.md`
-
-```markdown
-# 🌿 Plant Disease Classification using CNN (MobileNetV2)
+#  Plant Disease Classification using CNN (MobileNetV2)
 
 This project uses **Convolutional Neural Networks (CNN)** with transfer learning to classify plant diseases from leaf images. It utilizes the **MobileNetV2** architecture for efficient and accurate predictions across 38 different classes of plant diseases.
 
 ---
 
-## 📂 GitHub Repository
+##  GitHub Repository
 
 The full source code for this project is available on GitHub at:  
 👉 **[https://github.com/SaiVamshi45/Plant_Disease_Classification](https://github.com/SaiVamshi45/Plant_Disease_Classification)**
@@ -84,8 +78,8 @@ dataset/
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/yourusername/your-repository.git
-cd your-repository
+git clone https://github.com/SaiVamshi45/Plant_Disease_Classification.git
+cd Plant_Disease_Classification
 ````
 
 2. Install the required packages:
@@ -133,25 +127,8 @@ jupyter notebook Lab08_Plant_Disease_Classification.ipynb
 
 This project is for educational use. Modify and adapt freely with proper citation if reused.
 
----
-
-## 📬 Contact
-
-For any queries or collaboration, please contact:
-📧 **[your\_email@example.com](mailto:your_email@example.com)**
-
----
 
 > 🧪 Built with deep learning to support smarter agriculture and plant health monitoring.
 
-```
 
----
 
-Let me know if you'd like:
-- A `requirements.txt` file generated
-- Help uploading this to GitHub
-- Markdown converted to a downloadable `.md` file
-
-Just say the word!
-```
