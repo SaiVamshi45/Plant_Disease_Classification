@@ -112,8 +112,7 @@ jupyter notebook Lab08_Plant_Disease_Classification.ipynb
 
 ## 🔬 Future Improvements
 
-* Use data augmentation and early stopping
-* Fine-tune MobileNetV2 layers after initial training
+
 * Evaluate on real-world image samples
 * Add Grad-CAM for model explainability
 
